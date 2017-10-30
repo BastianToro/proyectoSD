@@ -25,4 +25,21 @@ movieModel.getMovies = (callback) => {
 	}
 };
 
+movieModel.getMoviesId = (movieData, callback) => {
+	if(connection){
+		sql = 'SELECT * FROM movies where movieid=?';
+		connection.query(
+			sql, movieData.movieid,
+			(err, rows) => {
+				if(err){
+					throw err;
+				}
+				else{
+					callback(null, rows);
+				}
+			}
+		);
+	}
+}
+
 module.exports = movieModel;

@@ -12,6 +12,8 @@ app.use(bodyParser.json());
 
 //routes
 require('./routes/movieRoutes')(app);
+require('./routes/genreRoutes')(app);
+require('./routes/ratingRoutes')(app);
 
 app.listen(app.get('port'), () =>{
 	console.log('server on port 3000');

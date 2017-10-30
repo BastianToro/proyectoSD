@@ -7,4 +7,16 @@ module.exports = function (app) {
 			res.json(data);
 		});
 	});
+
+	app.get('/movies/:id', (req, res) => {
+		const movieData = {
+			movieid: req.params.id,
+			title: req.body.title,
+			year: req.body.year
+		};
+
+		movie.getMoviesId(movieData, (err, data) => {
+			res.json(data);
+		});
+	});
 };
