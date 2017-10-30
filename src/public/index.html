@@ -1,36 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app>
 <head>
-  <meta charset="UTF-8">
-  <title>Restfull API TUTORIAL</title>
+<title>Search form with AngualrJS</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+
 </head>
+
 <body>
-  <h1>REST API TUTORIAL</h1>
 
-  <!-- GET REQUEST -->
-  <button id="get-request">
-    READ / GET Products
-  </button>
-
-  <!-- POST REQUEST-->
-  <form id="create-form" action="">
-    <input id="create-input" type="text">
-    <button>CREATE / PORT</button>
-  </form>
-
-  <hr>
-  <!-- PRODUCTS TABLE -->
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-  <script src="/bundle.js"></script>
+	<div ng-controller="SearchCtrl">
+	<form class="well form-search">
+		<label>Search:</label>
+		<input type="text" ng-model="keywords" class="input-medium search-query" placeholder="Keywords...">
+		<button type="submit" class="btn" ng-click="search()">Search</button>
+		<p class="help-block">Busque solo categorias de peliculas, como horror, drama..."</p>		
+    </form>
+<pre ng-model="result">
+{{result}}
+</pre>
+   </div>
 </body>
-</html>
-</html>
+
+</html> 

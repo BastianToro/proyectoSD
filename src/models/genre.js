@@ -28,7 +28,7 @@ genreModel.getGenresId = (genreData, callback) => {
 
 genreModel.getGenresMovie = (genreData, callback) => {
 	if(connection){
-		sql = 'SELECT * FROM genres where genre=?';
+		sql = 'SELECT title , M.year, G.genre FROM imdb_full.movies M JOIN imdb_full.genres G WHERE M.movieid=G.movieid AND G.genre =? ';;
 		connection.query(
 			sql, genreData.genre,
 			(err, rows) => {
