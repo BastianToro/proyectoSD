@@ -26,4 +26,21 @@ genreModel.getGenresId = (genreData, callback) => {
 	}
 }
 
+genreModel.getGenresMovie = (genreData, callback) => {
+	if(connection){
+		sql = 'SELECT * FROM genres where genre=?';
+		connection.query(
+			sql, genreData.genre,
+			(err, rows) => {
+				if(err){
+					throw err;
+				}
+				else{
+					callback(null, rows);
+				}
+			}
+		);
+	}
+}
+
 module.exports = genreModel;
