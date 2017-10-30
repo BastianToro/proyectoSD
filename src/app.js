@@ -10,6 +10,10 @@ app.set('port', process.env.PORT || 3000);
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
+app.get('/', function(req, res){
+	res.sendFile(__dirname+'/public/index.html');
+});
+
 //routes
 require('./routes/movieRoutes')(app);
 require('./routes/genreRoutes')(app);
